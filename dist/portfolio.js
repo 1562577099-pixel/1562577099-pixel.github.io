@@ -1,7 +1,7 @@
 import {sound,setupExperience,hidePeek} from './room-experience.js?v=9';
 import {enterSurface,leaveSurface,fade,stopMotion} from './motion-core.js?v=9';
-import './site-motion.js?v=9';
-import {createRoomWalk} from './room-walk.js?v=9';
+import './site-motion.js?v=10';
+import {createRoomWalk} from './room-walk.js?v=10';
 import {animateObjects} from './object-life.js?v=9';
 const $=s=>document.querySelector(s);
 const dialog=$('#work-dialog'),catalog=$('#catalog'),shade=$('#catalog-shade'),media=$('#media-container');

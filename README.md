@@ -6,6 +6,8 @@ Permanent website link: https://1562577099-pixel.github.io/?v=8. This fixed addr
 
 Scroll down to travel sideways through the four rooms. The gallery uses native scrolling, a damped spring and layered parallax; the profile and contact follow naturally below. Room controls and keyboard navigation offer direct access. Reduced-motion preferences use a vertical layout.
 
+Room transitions follow scroll input directly with a short, nearly critically damped finish. Idle alignment waits 90 ms, then lands in about 170–255 ms instead of adding a second browser-controlled smooth scroll. Desktop visitors can drag a blank area sideways and release with momentum; new input interrupts the landing immediately. Crossing into another room no longer restarts a staggered entrance.
+
 Each of the twelve objects has an interaction effect, including a camera flash, a turning globe, a rotating record, sound waves, paper motion and a projector beam. Original table illustrations are preserved; small SVG animation layers add motion on hover, focus or touch. The profile photograph keeps its complete original aspect ratio. Supplied paper/plaster textures are multiplied into room colours, with attribution in Credits.
 
 The website lives in `dist/`. The `Publish portfolio` GitHub Actions workflow deploys this directory to GitHub Pages on pushes to `main`.

@@ -2,6 +2,9 @@ import {spring,playFrames,reducedMotion,stopMotion} from './motion-core.js?v=9';
 const seen=new WeakSet();let observer;
 function reveal(section,force=false){
   if((seen.has(section)&&!force)||!document.querySelector('#entrance').hidden)return;seen.add(section);
+  // The horizontal track already reveals these rooms continuously. Restarting
+  // a staggered entrance halfway through the crossing made the join hesitate.
+  if(section.classList.contains('table-page')&&section.id!=='portfolio')return;
   if(reducedMotion())return;
   let selectors=section.classList.contains('table-page')?['.page-heading','.table-scene','.room-window','.page-bottom']:section.id==='about'?['.portrait-frame','.profile-copy']:['.eyebrow','.contact-content','footer'];
   selectors.forEach((selector,index)=>{const target=section.querySelector(selector);if(!target)return;const distance=selector==='.table-scene'?24:16;
