@@ -2,6 +2,8 @@
 
 An illustrated portfolio: four quiet rooms, four tables, moving images and small stories.
 
+Permanent website link: https://1562577099-pixel.github.io/?v=8. This fixed address always serves the current portfolio. Other homepage version parameters are normalized to it while preserving room anchors. Asset cache versions are independent of this permanent link.
+
 Scroll down to travel sideways through the four rooms. The gallery uses native scrolling, a damped spring and layered parallax; the profile and contact follow naturally below. Room controls and keyboard navigation offer direct access. Reduced-motion preferences use a vertical layout.
 
 Each of the twelve objects has an interaction effect, including a camera flash, a turning globe, a rotating record, sound waves, paper motion and a projector beam. Original table illustrations are preserved; small SVG animation layers add motion on hover, focus or touch. The profile photograph keeps its complete original aspect ratio. Supplied paper/plaster textures are multiplied into room colours, with attribution in Credits.
