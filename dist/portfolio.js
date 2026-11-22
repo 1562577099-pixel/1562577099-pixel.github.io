@@ -1,6 +1,8 @@
-import {sound,setupExperience,hidePeek} from './room-experience.js?v=8';
-import {enterSurface,leaveSurface,fade,stopMotion} from './motion-core.js?v=8';
-import './site-motion.js?v=8';
+import {sound,setupExperience,hidePeek} from './room-experience.js?v=9';
+import {enterSurface,leaveSurface,fade,stopMotion} from './motion-core.js?v=9';
+import './site-motion.js?v=9';
+import {createRoomWalk} from './room-walk.js?v=9';
+import {animateObjects} from './object-life.js?v=9';
 const $=s=>document.querySelector(s);
 const dialog=$('#work-dialog'),catalog=$('#catalog'),shade=$('#catalog-shade'),media=$('#media-container');
 let works=[],current=0,returnFocus=null,catalogFocus=null,toastTimer,closingWork=false,catalogClosing=false,catalogMotion=0,workMotion=0;
@@ -44,7 +46,7 @@ async function init(){
       const label=document.createElement('span');label.className='object-label';label.textContent=work.title;const plus=document.createElement('span');plus.className='hotspot-plus';plus.textContent='+';plus.setAttribute('aria-hidden','true');button.append(label,plus);figure.querySelector('.hotspots').append(button);
     }}
     for(const work of works){const item=document.createElement('button');item.className='catalog-item';item.dataset.work=work.id;const img=new Image();img.src=work.poster;img.alt='';img.loading='lazy';const text=document.createElement('span');const cat=document.createElement('span');cat.className='catalog-category';cat.textContent=work.category;const title=document.createElement('strong');title.textContent=work.title;const desc=document.createElement('span');desc.className='catalog-description';desc.textContent=work.description;const small=document.createElement('small');small.textContent=`${work.object} · ${work.kind==='pdf'?work.pages+' 页':duration(work.duration)}`;text.append(cat,title,desc,small);item.append(img,text);item.addEventListener('click',()=>showWork(work.id));$('#catalog-items').append(item);}
-    setupExperience(works,showWork);
+    animateObjects();setupExperience(works,showWork);
   }catch(error){console.error(error);toast('作品加载失败，请刷新重试。');}
 }
-init();
+createRoomWalk();init();

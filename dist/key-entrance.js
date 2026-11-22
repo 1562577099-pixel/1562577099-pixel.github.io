@@ -1,4 +1,4 @@
-import {spring,fade,playFrames,reducedMotion,stopMotion} from './motion-core.js?v=8';
+import {spring,fade,playFrames,reducedMotion,stopMotion} from './motion-core.js?v=9';
 
 // One continuous gesture: the pointer's key settles into the lock and turns.
 export function createKeyEntrance(sound){

@@ -1,0 +1,9 @@
+{
+  "name":"yuxin-illustrated-portfolio",
+  "private":true,
+  "type":"module",
+  "scripts":{
+    "start":"python -m http.server 4173 --directory dist",
+    "check":"node --check dist/portfolio.js && node --check dist/room-walk.js && node --check dist/object-life.js && node --check dist/room-experience.js && node --check dist/site-motion.js && node --check dist/key-entrance.js && node --check dist/soundscape.js && node tools/check.mjs"
+  }
+}

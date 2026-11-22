@@ -1,4 +1,4 @@
-import {spring,playFrames,reducedMotion,stopMotion} from './motion-core.js?v=8';
+import {spring,playFrames,reducedMotion,stopMotion} from './motion-core.js?v=9';
 const seen=new WeakSet();let observer;
 function reveal(section,force=false){
   if((seen.has(section)&&!force)||!document.querySelector('#entrance').hidden)return;seen.add(section);
@@ -11,9 +11,10 @@ function reveal(section,force=false){
 export function revealEntrance(){
   document.querySelectorAll('.entry-copy,.entry-door').forEach((el,i)=>spring(el,p=>({opacity:Math.min(1,Math.max(0,p*1.3)),transform:`translate3d(0,${18*(1-p)}px,0)`}),{stiffness:160,damping:21,delay:i*85}));
 }
-function visibleRoom(){let closest=null,distance=Infinity;document.querySelectorAll('.table-page,.profile-page,#contact').forEach(s=>{const r=s.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight&&Math.abs(r.top)<distance){closest=s;distance=Math.abs(r.top);}});return closest;}
+function visibleRoom(){let closest=null,distance=Infinity;document.querySelectorAll('.table-page,.profile-page,#contact').forEach(s=>{const r=s.getBoundingClientRect();if(r.right>innerWidth*.5&&r.left<innerWidth*.5&&r.bottom>0&&r.top<innerHeight&&Math.abs(r.top)<distance){closest=s;distance=Math.abs(r.top);}});return closest;}
 if('IntersectionObserver' in window){observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)reveal(e.target);}),{threshold:.15});document.querySelectorAll('.table-page,.profile-page,#contact').forEach(s=>observer.observe(s));}
 document.addEventListener('portfolio:entered',()=>{const section=visibleRoom();if(section)reveal(section,true);});
+document.addEventListener('portfolio:roomchange',event=>reveal(event.detail.section));
 document.addEventListener('portfolio:intro',revealEntrance);
 if(!document.querySelector('#entrance').hidden)revealEntrance();
 // Independent scale leaves positioned hotspot transforms and native hit targets intact.

@@ -1,11 +1,12 @@
-import {createSoundscape} from './soundscape.js?v=8';
-import {createKeyEntrance} from './key-entrance.js?v=8';
-import {enterSurface,leaveSurface,stopMotion} from './motion-core.js?v=8';
+import {createSoundscape} from './soundscape.js?v=9';
+import {createKeyEntrance} from './key-entrance.js?v=9';
+import {enterSurface,leaveSurface,stopMotion} from './motion-core.js?v=9';
 const $=s=>document.querySelector(s),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 export const sound=createSoundscape($('#sound-toggle'));
 createKeyEntrance(sound);
 const peek=$('#work-peek'),peekVideo=$('#peek-video'),peekImage=$('#peek-image');let active=null,activeButton=null,showTimer,hideTimer,touchMode=false,peekTicket=0;
 export function hidePeek(immediate=false){clearTimeout(showTimer);clearTimeout(hideTimer);const ticket=++peekTicket;peekVideo.pause();active=null;touchMode=false;const finish=()=>{if(ticket!==peekTicket)return;peek.hidden=true;peek.classList.remove('visible','touch-peek');peekVideo.removeAttribute('src');peekVideo.load();};if(immediate||reduced||peek.hidden){stopMotion(peek);finish();}else leaveSurface(peek,'preview').then(done=>{if(done)finish();});}
+document.addEventListener('portfolio:roomchange',()=>hidePeek(true));
 function placePeek(button,event){if(touchMode)return;const r=button.getBoundingClientRect();const x=event?.clientX??r.right,y=event?.clientY??r.top;const pw=peek.offsetWidth||310,ph=peek.offsetHeight||355;let left=x+23;if(left+pw>innerWidth-15)left=x-pw-23;left=Math.max(12,Math.min(left,innerWidth-pw-12));const top=Math.max(12,Math.min(y-25,innerHeight-ph-12));peek.style.left=left+'px';peek.style.top=top+'px';}
 export function setupExperience(works,showWork){
   const fine=()=>matchMedia('(hover:hover) and (pointer:fine)').matches&&innerWidth>650;
