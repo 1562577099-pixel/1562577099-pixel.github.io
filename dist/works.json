@@ -1,0 +1,133 @@
+[
+  {
+    "id": "film-01",
+    "title": "角色造型研究",
+    "category": "角色设计",
+    "object": "雕塑",
+    "src": "media/film-01.mp4",
+    "poster": "media/film-01.jpg",
+    "duration": 7.9333,
+    "originalFile": "14adc79ede6b0e1cde5f28deada196ba_raw.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-02",
+    "title": "Layer Earth · 交互演示",
+    "category": "创意编程",
+    "object": "地球仪",
+    "src": "media/film-02.mp4",
+    "poster": "media/film-02.jpg",
+    "duration": 78.808005,
+    "originalFile": "2361433_YuxinGong_demo.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-03",
+    "title": "Blender 动画制作",
+    "category": "三维动画",
+    "object": "放映机",
+    "src": "media/film-03.mp4",
+    "poster": "media/film-03.jpg",
+    "duration": 180.01,
+    "originalFile": "blender动画制作.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-04",
+    "title": "空间与角色",
+    "category": "三维影像",
+    "object": "花瓶",
+    "src": "media/film-04.mp4",
+    "poster": "media/film-04.jpg",
+    "duration": 166.25,
+    "originalFile": "cd9eea33d26ae50bc35d86f069b7c50d_raw.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-05",
+    "title": "Maya · 立体书",
+    "category": "三维动画",
+    "object": "立体书",
+    "src": "media/film-05.mp4",
+    "poster": "media/film-05.jpg",
+    "duration": 108.483991,
+    "originalFile": "maya_popupbook.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-06",
+    "title": "Montage Reel",
+    "category": "动态设计",
+    "object": "唱片",
+    "src": "media/film-06.mp4",
+    "poster": "media/film-06.jpg",
+    "duration": 125.201995,
+    "originalFile": "Montage reel.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-07",
+    "title": "MV 制作",
+    "category": "音乐影像",
+    "object": "耳机",
+    "src": "media/film-07.mp4",
+    "poster": "media/film-07.jpg",
+    "duration": 235.5,
+    "originalFile": "MV制作.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-08",
+    "title": "TouchDesigner 动效制作",
+    "category": "生成艺术",
+    "object": "光学装置",
+    "src": "media/film-08.mp4",
+    "poster": "media/film-08.jpg",
+    "duration": 90.345,
+    "originalFile": "touchdesigner动效制作.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-09",
+    "title": "再见 Susan",
+    "category": "动画短片",
+    "object": "小鼠",
+    "src": "media/film-09.mp4",
+    "poster": "media/film-09.jpg",
+    "duration": 182.378667,
+    "originalFile": "再见susan02.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-10",
+    "title": "摄影",
+    "category": "摄影影像",
+    "object": "相机",
+    "src": "media/film-10.mp4",
+    "poster": "media/film-10.jpg",
+    "duration": 55.80575,
+    "originalFile": "摄影.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "film-11",
+    "title": "黄绿蓝小世界",
+    "category": "定格与实验影像",
+    "object": "花朵",
+    "src": "media/film-11.mp4",
+    "poster": "media/film-11.jpg",
+    "duration": 219.264,
+    "originalFile": "黄绿蓝小世界.mp4",
+    "kind": "video"
+  },
+  {
+    "id": "brand",
+    "title": "Layer Earth · 品牌识标",
+    "category": "品牌设计",
+    "object": "墙上画框",
+    "src": "media/layer-earth.pdf",
+    "poster": "media/brand-01.jpg",
+    "pages": 16,
+    "kind": "pdf"
+  }
+]
