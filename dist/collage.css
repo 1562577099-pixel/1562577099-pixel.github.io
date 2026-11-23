@@ -1,0 +1,35 @@
+.room-trim{--trim-height:55px;position:absolute;inset:0 0 auto;height:var(--trim-height);background:url('assets/collage/lace-trim.png') repeat-x;background-size:auto calc(var(--trim-height)*2.7);background-position:left calc(var(--trim-height)*-.71);filter:drop-shadow(0 3px 2px #71695416);pointer-events:none;z-index:6}
+.site-header{height:140px;padding-top:34px}
+.work-peek{width:490px;max-width:calc(100vw - 28px);padding:10px;background:#fbf8e9;background-clip:padding-box;border:solid transparent;border-width:105px 42px 40px;border-image-source:url('assets/collage/cream-frame.png?v=2');border-image-slice:19% 8% 7% 8%;border-image-repeat:stretch;box-shadow:none;filter:drop-shadow(3px 7px 6px #51433426);overflow:visible}
+.work-peek[data-frame=buttons]{width:534px;border-width:56px 64px;border-image-source:url('assets/collage/button-frame.png?v=2');border-image-slice:10% 12% 10% 12%}
+.peek-category{font-size:13.333px;margin:17px 4px 7px;letter-spacing:1px}
+.peek-title{font-size:30.667px;margin:0 4px 12px}
+.peek-description{font-size:17.333px;line-height:1.7;margin:0 4px 16px}
+.peek-meta{font-size:13.333px;margin:0 4px 5px}
+.peek-content{position:relative;max-height:calc(100dvh - 170px);overflow:auto;scrollbar-width:thin}
+.book-collage{position:absolute;left:17%;top:14%;width:27.5%;height:37%;z-index:2;pointer-events:none;transform-origin:50% 88%;filter:drop-shadow(1px 4px 2px #65574a23);transition:transform .4s cubic-bezier(.22,.9,.25,1.2)}
+.book-collage img{display:block;width:100%;height:100%;object-fit:contain;object-position:bottom;user-select:none;-webkit-user-drag:none}
+[data-table=lavender]:has([data-effect="film-05"].is-playing) .book-collage{animation:paper-flutter 1.8s ease-in-out infinite}
+@keyframes paper-flutter{0%,100%{transform:translateY(0) rotate(0)}40%{transform:translateY(-5px) rotate(-1.5deg)}70%{transform:translateY(-3px) rotate(.75deg)}}
+@media(max-width:650px),(max-width:1100px) and (max-aspect-ratio:4/5){.room-trim{height:42px;background-size:auto 42px}.site-header{height:123px;padding-top:34px}.room-track>.table-page{padding-top:clamp(146px,18svh,180px)}.work-peek.touch-peek{width:calc(100% - 24px);max-width:498px;left:12px!important;right:12px;bottom:12px;padding:8px;border-width:clamp(64px,20.5vw,80px) clamp(23px,7.2vw,28px) clamp(23px,7.2vw,28px);box-shadow:none}.work-peek.touch-peek[data-frame=buttons]{border-width:clamp(29px,10vw,39px) clamp(33px,11.3vw,44px)}.touch-peek .peek-content{max-height:calc(100dvh - 145px)}.touch-peek .peek-category{font-size:12px;margin-top:12px}.touch-peek .peek-title{font-size:27px}.touch-peek .peek-description{font-size:15px;line-height:1.7}.touch-peek .peek-meta{font-size:12px}.touch-peek .peek-watch{font-size:14px}.touch-peek .peek-close{right:-8px;top:-12px;width:32px;height:32px;border-radius:50%;z-index:5}.touch-peek .peek-media{max-height:25dvh}}
+@media(max-width:650px) and (max-height:700px){.room-track>.table-page{padding-top:130px}.room-trim{height:34px;background-size:auto 34px}.site-header{height:108px;padding-top:29px}.work-peek.touch-peek{border-width:64px 23px 23px}.work-peek.touch-peek[data-frame=buttons]{border-width:29px 33px}.touch-peek .peek-title{font-size:24px}.touch-peek .peek-description{font-size:14px}.touch-peek .peek-content{max-height:calc(100dvh - 125px)}}
+@media(min-width:651px) and (max-height:700px){.site-header{height:112px;padding-top:28px}.room-trim{height:40px;background-size:auto 40px}.work-peek{border-width:90px 32px 32px;width:470px}.work-peek[data-frame=buttons]{border-width:45px 51px;width:508px}.peek-media{max-height:25dvh}.peek-content{max-height:calc(100dvh - 135px)}}
+@media(prefers-reduced-motion:reduce){[data-table=lavender] .book-collage{animation:none!important;transition:none}}
+.entry-layout{max-width:1160px;padding:125px 6% 45px;gap:clamp(35px,6vw,90px)}
+.entry-copy h2{margin:0}
+.entry-door.photo-portal{aspect-ratio:1041/1511;width:min(100%,410px,49svh);max-width:none;justify-self:center;perspective:1000px}
+.portal-masks{position:absolute;pointer-events:none}
+.photo-portal .entry-interior{inset:0;border-radius:0;clip-path:url(#portal-opening);background:linear-gradient(#e8edda 0 72%,#dce2c6 72%);box-shadow:none}
+.photo-portal .entry-interior img{width:100%;left:0;bottom:0}
+.door-frame-photo{position:absolute;inset:0;width:100%;height:100%;clip-path:url(#portal-surround);z-index:2;pointer-events:none}
+.photo-portal .door-wing{inset:0;width:100%;height:100%;transition:none;z-index:3}
+.photo-portal .door-wing img{display:block;width:100%;height:100%;max-width:none;transform:none}
+.photo-portal .door-left{clip-path:polygon(24.3% 40.8%,34% 40.5%,43% 37.3%,50.1% 38.6%,50.1% 94.7%,24.3% 94.7%);transform-origin:24.3% 68%}
+.photo-portal .door-right{clip-path:polygon(49.9% 38.6%,57% 37.3%,66% 40.5%,75.6% 40.8%,75.6% 94.7%,49.9% 94.7%);transform-origin:75.6% 68%}
+.photo-portal .entry-lock{left:52.2%;top:70.5%;width:42px;height:42px}
+.photo-portal .entry-lock svg{opacity:0}
+.floating-sound{top:70px}
+.entry-hint,.entry-skip{top:81px}
+@media(max-width:650px),(max-width:1100px) and (max-aspect-ratio:4/5){.room-trim{--trim-height:42px;background-size:auto calc(var(--trim-height)*2.7);background-position:left calc(var(--trim-height)*-.71)}.floating-sound{top:62px}.entry-hint,.entry-skip{top:72px}.entry-layout{display:flex;flex-direction:column;justify-content:center;padding:115px 20px 30px;gap:24px}.entry-copy{text-align:center}.entry-copy h2{font-size:52px;line-height:1;margin:0}.entry-copy br{display:none}.entry-door.photo-portal{width:min(80vw,340px,45svh)}}
+@media(min-width:651px) and (max-height:700px){.room-trim{--trim-height:40px;background-size:auto calc(var(--trim-height)*2.7);background-position:left calc(var(--trim-height)*-.71)}.floating-sound{top:54px}.entry-hint,.entry-skip{top:65px}.entry-layout{padding:95px 6% 25px}.entry-door.photo-portal{width:min(100%,47svh)}}
+@media(max-width:650px) and (max-height:700px){.room-trim{--trim-height:34px;background-size:auto calc(var(--trim-height)*2.7);background-position:left calc(var(--trim-height)*-.71)}.floating-sound{top:52px}.entry-hint,.entry-skip{top:62px}.entry-layout{padding:90px 20px 20px;gap:16px}.entry-copy h2{font-size:44px}.entry-door.photo-portal{width:min(75vw,43svh)}}

@@ -1,8 +1,8 @@
-import {sound,setupExperience,hidePeek} from './room-experience.js?v=10';
+import {sound,setupExperience,hidePeek} from './room-experience.js?v=11';
 import {enterSurface,leaveSurface,fade,stopMotion} from './motion-core.js?v=9';
 import './site-motion.js?v=10';
 import {createRoomWalk} from './room-walk.js?v=11';
-import {animateObjects} from './object-life.js?v=9';
+import {animateObjects} from './object-life.js?v=10';
 const $=s=>document.querySelector(s);
 const dialog=$('#work-dialog'),catalog=$('#catalog'),shade=$('#catalog-shade'),media=$('#media-container');
 let works=[],current=0,returnFocus=null,catalogFocus=null,toastTimer,closingWork=false,catalogClosing=false,catalogMotion=0,workMotion=0;
@@ -40,7 +40,7 @@ $('#copy-email').addEventListener('click',async()=>{const email='gongyuxin2027@1
 async function loadJson(url){const r=await fetch(url);if(!r.ok)throw new Error('无法加载 '+url);return r.json();}
 async function init(){
   try{
-    const [projectData,tables,details]=await Promise.all([loadJson('works.json'),loadJson('table-layout.json'),loadJson('work-details.json')]);works=projectData.map(w=>({...w,...details[w.id]}));
+    const [projectData,tables,details]=await Promise.all([loadJson('works.json'),loadJson('table-layout.json?v=2'),loadJson('work-details.json')]);works=projectData.map(w=>({...w,...details[w.id]}));
     for(const table of tables){const figure=document.querySelector(`[data-table="${table.table}"]`);for(const item of table.items){const work=works.find(w=>w.id===item.id);if(!work)throw new Error('作品入口缺少对应作品');work.object=item.object;
       const button=document.createElement('button');button.className='hotspot';button.dataset.work=item.id;button.style.left=item.x+'%';button.style.top=item.y+'%';button.style.width=item.w+'%';button.style.height=item.h+'%';button.setAttribute('aria-label',item.object+'：'+work.title);
       const label=document.createElement('span');label.className='object-label';label.textContent=work.title;const plus=document.createElement('span');plus.className='hotspot-plus';plus.textContent='+';plus.setAttribute('aria-hidden','true');button.append(label,plus);figure.querySelector('.hotspots').append(button);
