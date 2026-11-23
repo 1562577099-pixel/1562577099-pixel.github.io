@@ -38,7 +38,6 @@ export function createRoomWalk(){
   }
   function measure(){
     cancelGlide();if(drag){drag=null;stage.classList.remove('is-dragging');}
-    walk.querySelector('.walk-hint').textContent=matchMedia('(pointer:fine)').matches&&innerWidth>650?'滚动或拖动，穿过房间':'向下滑动，穿过房间';
     const oldStep=step,wasInside=scrollY>=start&&scrollY<=start+oldStep*3;
     start=walk.getBoundingClientRect().top+scrollY;step=Math.max(innerHeight*.8,360);
     walk.style.setProperty('--walk-distance',`${step*3}px`);

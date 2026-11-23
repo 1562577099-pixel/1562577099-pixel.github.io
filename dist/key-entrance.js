@@ -3,16 +3,15 @@ import {spring,fade,playFrames,reducedMotion,stopMotion} from './motion-core.js?
 // One continuous gesture: the pointer's key settles into the lock and turns.
 export function createKeyEntrance(sound){
   const $=s=>document.querySelector(s),entrance=$('#entrance'),main=$('#main-content'),header=$('.site-header');
-  const lock=$('#door-lock'),key=$('#turning-key'),door=$('.entry-door'),music=$('#sound-toggle'),status=$('#entry-status');
+  const lock=$('#door-lock'),key=$('#turning-key'),door=$('.entry-door'),music=$('#sound-toggle');
   let entering=false,ticket=0,lastPoint=null;
-  const hint=()=>matchMedia('(pointer:coarse)').matches?'轻触锁孔，打开小小世界。':'把钥匙移到锁孔，轻轻一转。';
   function cancel(){ticket++;[entrance,key,lock,...entrance.querySelectorAll('.door-wing')].forEach(stopMotion);key.hidden=true;entrance.classList.remove('unlocking','opening','leaving');entrance.querySelectorAll('.door-wing').forEach(w=>w.style.transform='');lock.disabled=false;entering=false;}
   function close(){cancel();entrance.hidden=true;document.body.append(music);main.inert=header.inert=false;document.body.style.overflow='';try{sessionStorage.setItem('yuxin-room-entered','1');}catch{}$('#portfolio-title').setAttribute('tabindex','-1');$('#portfolio-title').focus({preventScroll:true});document.dispatchEvent(new Event('portfolio:entered'));}
-  function show(){cancel();entrance.hidden=false;entrance.append(music);main.inert=header.inert=true;document.body.style.overflow='hidden';status.textContent=hint();lock.focus({preventScroll:true});document.dispatchEvent(new Event('portfolio:intro'));}
+  function show(){cancel();entrance.hidden=false;entrance.append(music);main.inert=header.inert=true;document.body.style.overflow='hidden';lock.focus({preventScroll:true});document.dispatchEvent(new Event('portfolio:intro'));}
   async function unlock(event){
     if(entering)return;entering=true;const generation=++ticket;lock.disabled=true;
     // Start audio synchronously in the user gesture, without delaying the visual.
-    sound.startAutomatically();entrance.classList.add('unlocking');status.textContent='钥匙轻转，故事开启。';
+    sound.startAutomatically();entrance.classList.add('unlocking');
     if(!reducedMotion()){
       const r=lock.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
       const pointer=event.detail>0&&lastPoint?lastPoint:{x:x-32,y:y+20};
