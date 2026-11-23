@@ -1,3 +1,4 @@
+import {setupRoomWindows} from './room-windows.js?v=1';
 import {sound,setupExperience,hidePeek} from './room-experience.js?v=12';
 import {enterSurface,leaveSurface,fade,stopMotion} from './motion-core.js?v=9';
 import './site-motion.js?v=10';
@@ -49,4 +50,4 @@ async function init(){
     animateObjects();setupExperience(works,showWork);
   }catch(error){console.error(error);toast('作品加载失败，请刷新重试。');}
 }
-createRoomWalk();init();
+createRoomWalk();setupRoomWindows();init();
