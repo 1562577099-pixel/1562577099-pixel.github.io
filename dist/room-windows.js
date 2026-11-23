@@ -27,7 +27,7 @@ export function windowMotionValue(motion,now){
   return motion.from+(motion.to-motion.from)*value;
 }
 
-function image(src){const node=document.createElement('img');node.src=src;node.alt='';node.draggable=false;node.decoding='async';return node;}
+function image(src){const node=document.createElement('img');node.loading='lazy';node.fetchPriority='low';node.decoding='async';node.src=src;node.alt='';node.draggable=false;return node;}
 function svgNode(name,attributes={}){const node=document.createElementNS(svgNamespace,name);for(const [key,value]of Object.entries(attributes))node.setAttribute(key,value);return node;}
 
 export function setupRoomWindows(){
