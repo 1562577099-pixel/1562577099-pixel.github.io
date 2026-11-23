@@ -1,0 +1,5 @@
+/* The supplied PNG is unchanged. This frame omits only its transparent canvas margins. */
+#portfolio-title.portfolio-wordmark{position:relative;width:min(40vw,570px);max-width:100%;aspect-ratio:1320/580;overflow:hidden;margin:0;line-height:0;letter-spacing:0}
+.portfolio-wordmark>img{position:absolute;display:block;max-width:none;width:116.363636%;height:auto;left:-7.575758%;top:-40.689655%;user-select:none;-webkit-user-drag:none}
+@media(max-width:650px),(max-width:1100px) and (max-aspect-ratio:4/5){#portfolio-title.portfolio-wordmark{width:min(100%,470px)}}
+@media(min-width:651px) and (max-height:500px){#portfolio-title.portfolio-wordmark{width:min(40vw,80svh)}}
