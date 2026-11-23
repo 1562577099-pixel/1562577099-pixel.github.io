@@ -1,4 +1,4 @@
-import {sound,setupExperience,hidePeek} from './room-experience.js?v=11';
+import {sound,setupExperience,hidePeek} from './room-experience.js?v=12';
 import {enterSurface,leaveSurface,fade,stopMotion} from './motion-core.js?v=9';
 import './site-motion.js?v=10';
 import {createRoomWalk} from './room-walk.js?v=11';

@@ -1,7 +1,10 @@
+import {createEntranceAudio} from './entrance-audio.js?v=1';
+
 // Original, gesture-activated music-box ambience. No third-party recordings.
 export function createSoundscape(button){
   let ctx,bus,music,delay,feedback,timer,enabled=false,ducked=false,step=0,next=0,lastHover=0,request=0,manualMuted=false;
   try{manualMuted=localStorage.getItem('yuxin-music-muted')==='1';}catch{}
+  const effects=createEntranceAudio(()=>{setup();return ctx;},document.querySelector('#effects-toggle'));
   const notes=[60,67,72,76,74,67,64,69,72,79,76,72,67,71,74,67];
   function setup(){if(ctx)return;ctx=new (window.AudioContext||window.webkitAudioContext)();bus=ctx.createGain();bus.gain.value=.4;bus.connect(ctx.destination);music=ctx.createGain();music.gain.value=.34;music.connect(bus);delay=ctx.createDelay(2);delay.delayTime.value=.43;feedback=ctx.createGain();feedback.gain.value=.2;delay.connect(feedback);feedback.connect(delay);delay.connect(music);}
   function tone(midi,time,length=.9,level=.16,out=music){const freq=440*2**((midi-69)/12);const gain=ctx.createGain();gain.gain.setValueAtTime(.00001,time);gain.gain.exponentialRampToValueAtTime(level,time+.018);gain.gain.exponentialRampToValueAtTime(.00001,time+length);gain.connect(out);if(out===music)gain.connect(delay);for(const [ratio,volume]of[[1,1],[2,.12]]){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=freq*ratio;g.gain.value=volume;o.connect(g);g.connect(gain);o.start(time);o.stop(time+length+.04);o.onended=()=>{o.disconnect();g.disconnect();};}setTimeout(()=>gain.disconnect(),(time-ctx.currentTime+length+.2)*1000);}
@@ -13,6 +16,6 @@ export function createSoundscape(button){
   document.addEventListener('pointerdown',e=>{if(e.isTrusted&&!e.target.closest('#sound-toggle'))startAutomatically();},{capture:true,passive:true});
   document.addEventListener('keydown',e=>{if(e.isTrusted&&(e.key==='Enter'||e.key===' ')&&!e.target.closest('#sound-toggle'))startAutomatically();},{capture:true});
   if(manualMuted)render();else{button.querySelector('span').textContent='音乐';button.dataset.audioState='ready';if(navigator.userActivation?.hasBeenActive)startAutomatically();}
-  document.addEventListener('visibilitychange',()=>{if(!ctx)return;if(document.hidden)ctx.suspend();else if(enabled)ctx.resume().then(()=>{next=ctx.currentTime+.1;schedule();});});
-  return {set,startAutomatically,lock(){if(enabled&&ctx?.state==='running'){tone(89,ctx.currentTime,.12,.025,bus);tone(76,ctx.currentTime+.08,.2,.035,bus);}},hover(index=0){if(!enabled||!ctx||ctx.state!=='running'||ctx.currentTime-lastHover<.18)return;lastHover=ctx.currentTime;tone([76,79,81,83][index%4],ctx.currentTime,.32,.035,bus);},door(){if(!enabled||!ctx)return;for(let i=0;i<4;i++)tone([60,64,67,72][i],ctx.currentTime+i*.14,1.7,.1);},duck(value){ducked=value;if(music&&ctx)music.gain.setTargetAtTime(ducked?.055:.34,ctx.currentTime,.3);},get enabled(){return enabled;}};
+  document.addEventListener('visibilitychange',()=>{if(!ctx)return;if(document.hidden){effects.stop();ctx.suspend();}else if(enabled)ctx.resume().then(()=>{next=ctx.currentTime+.1;schedule();});});
+  return {set,startAutomatically,prepareEntrance:effects.prepare,stopEntrance:effects.stop,lock:effects.lock,hover(index=0){if(!enabled||!ctx||ctx.state!=='running'||ctx.currentTime-lastHover<.18)return;lastHover=ctx.currentTime;tone([76,79,81,83][index%4],ctx.currentTime,.32,.035,bus);},door:effects.door,duck(value){ducked=value;if(music&&ctx)music.gain.setTargetAtTime(ducked?.055:.34,ctx.currentTime,.3);},get enabled(){return enabled;}};
 }

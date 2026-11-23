@@ -4,31 +4,35 @@ import {spring,fade,playFrames,reducedMotion,stopMotion} from './motion-core.js?
 export function createKeyEntrance(sound){
   const $=s=>document.querySelector(s),entrance=$('#entrance'),main=$('#main-content'),header=$('.site-header');
   const lock=$('#door-lock'),key=$('#turning-key'),door=$('.entry-door'),music=$('#sound-toggle');
+  const instruction=$('#entry-instruction'),entrySession='yuxin-room-entered-v2';
   let entering=false,ticket=0,lastPoint=null;
-  function cancel(){ticket++;[entrance,key,lock,...entrance.querySelectorAll('.door-wing')].forEach(stopMotion);key.hidden=true;entrance.classList.remove('unlocking','opening','leaving');entrance.querySelectorAll('.door-wing').forEach(w=>w.style.transform='');lock.disabled=false;entering=false;}
-  function close(){cancel();entrance.hidden=true;document.body.append(music);main.inert=header.inert=false;document.body.style.overflow='';try{sessionStorage.setItem('yuxin-room-entered','1');}catch{}$('#portfolio-title').setAttribute('tabindex','-1');$('#portfolio-title').focus({preventScroll:true});document.dispatchEvent(new Event('portfolio:entered'));}
-  function show(){cancel();entrance.hidden=false;entrance.append(music);main.inert=header.inert=true;document.body.style.overflow='hidden';lock.focus({preventScroll:true});document.dispatchEvent(new Event('portfolio:intro'));}
+  function cancel(stopAudio=true){ticket++;if(stopAudio)sound.stopEntrance();[entrance,key,lock,...entrance.querySelectorAll('.door-wing')].forEach(stopMotion);key.hidden=true;entrance.classList.remove('unlocking','opening','leaving');door.classList.remove('key-near');entrance.querySelectorAll('.door-wing').forEach(w=>w.style.transform='');lock.disabled=false;entering=false;}
+  function close(stopAudio=true){cancel(stopAudio);entrance.hidden=true;document.body.append(music);main.inert=header.inert=false;document.body.style.overflow='';try{sessionStorage.setItem(entrySession,'1');}catch{}$('#portfolio-title').setAttribute('tabindex','-1');$('#portfolio-title').focus({preventScroll:true});document.dispatchEvent(new Event('portfolio:entered'));}
+  function show(){cancel();entrance.hidden=false;entrance.append(music);main.inert=header.inert=true;document.body.style.overflow='hidden';instruction.textContent=matchMedia('(pointer:coarse)').matches?'轻触发光锁孔，打开大门':'将钥匙移到发光锁孔，点击解锁';lock.focus({preventScroll:true});document.dispatchEvent(new Event('portfolio:intro'));}
   async function unlock(event){
     if(entering)return;entering=true;const generation=++ticket;lock.disabled=true;
     // Start audio synchronously in the user gesture, without delaying the visual.
-    sound.startAutomatically();entrance.classList.add('unlocking');
-    if(!reducedMotion()){
+    sound.startAutomatically();sound.prepareEntrance();entrance.classList.add('unlocking');instruction.textContent='正在解锁…';
+    const animate=!reducedMotion();
+    if(animate){
       const r=lock.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
       const pointer=event.detail>0&&lastPoint?lastPoint:{x:x-32,y:y+20};
       const dx=Math.max(-90,Math.min(90,pointer.x-x)),dy=Math.max(-65,Math.min(65,pointer.y-y));
       key.style.left=(x-9)+'px';key.style.top=(y-9)+'px';key.hidden=false;
       await spring(key,p=>({opacity:Math.min(1,p*2),transform:`translate3d(${dx*(1-p)}px,${dy*(1-p)}px,0) rotate(${-18*(1-p)}deg) scale(${.7+.3*p})`}),{stiffness:210,damping:24});
       if(generation!==ticket)return;
-      sound.lock();
+    }
+    if(generation!==ticket)return;sound.lock();
+    if(animate){
       await playFrames(key,[{transform:'rotate(0deg)',opacity:1},{transform:'rotate(94deg)',opacity:1,offset:.72},{transform:'rotate(88deg)',opacity:1}],{duration:600,easing:'cubic-bezier(.25,.8,.3,1)'});
       if(generation!==ticket)return;
       await fade(key,1,0,{duration:170,fromTransform:'rotate(88deg)',toTransform:'rotate(88deg) scale(.9)'});
-    }
-    if(generation!==ticket)return;key.hidden=true;entrance.classList.add('opening');sound.door();
+    }else await new Promise(resolve=>setTimeout(resolve,650));
+    if(generation!==ticket)return;key.hidden=true;entrance.classList.add('opening');instruction.textContent='大门已打开';sound.door();
     const doors=[...entrance.querySelectorAll('.door-wing')];
     await Promise.all(doors.map((wing,i)=>{const angle=i?108:-108;wing.style.transform=`rotateY(${angle}deg)`;return spring(wing,p=>({transform:`rotateY(${angle*p}deg)`}),{stiffness:70,damping:13});}));
     if(generation!==ticket)return;entrance.classList.add('leaving');
-    if(await fade(entrance,1,0,{duration:420})&&generation===ticket)close();
+    if(await fade(entrance,1,0,{duration:420})&&generation===ticket)close(false);
   }
   lock.addEventListener('pointermove',e=>{lastPoint={x:e.clientX,y:e.clientY};});
   lock.addEventListener('pointerdown',e=>{lastPoint={x:e.clientX,y:e.clientY};});
@@ -43,6 +47,6 @@ export function createKeyEntrance(sound){
     if(e.key==='Tab'){const nodes=[...entrance.querySelectorAll('button:not(:disabled)')].filter(n=>!n.hidden),first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
   });
   addEventListener('resize',()=>{if(entering)close();},{passive:true});
-  let entered=false;try{entered=sessionStorage.getItem('yuxin-room-entered')==='1';}catch{}
+  let entered=false;try{entered=sessionStorage.getItem(entrySession)==='1';}catch{}
   if(entered){entrance.hidden=true;document.body.append(music);}else show();
 }

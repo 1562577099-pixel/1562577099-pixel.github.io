@@ -1,5 +1,5 @@
-import {createSoundscape} from './soundscape.js?v=9';
-import {createKeyEntrance} from './key-entrance.js?v=10';
+import {createSoundscape} from './soundscape.js?v=10';
+import {createKeyEntrance} from './key-entrance.js?v=11';
 import {enterSurface,leaveSurface,stopMotion} from './motion-core.js?v=9';
 const $=s=>document.querySelector(s),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 export const sound=createSoundscape($('#sound-toggle'));
