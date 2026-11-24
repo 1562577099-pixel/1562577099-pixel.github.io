@@ -4,6 +4,10 @@ An illustrated portfolio: four quiet rooms, four tables, moving images and small
 
 Permanent website link: https://1562577099-pixel.github.io/?v=8. This fixed address always serves the current portfolio. Other homepage version parameters are normalized to it while preserving room anchors. Asset cache versions are independent of this permanent link.
 
+The separate ToyFight-style character portfolio is published at https://1562577099-pixel.github.io/toyfight/. It keeps its own 61 pages, 11 personal videos, procedural character models and scroll interactions under `dist/toyfight/`. Its 93 reference videos are served from the same origin. The root portfolio remains independent.
+
+To refresh that version from the sibling `toyfight-replica` project, run `python tools/export-toyfight.py`, then `npm run check`. The exporter adjusts asset and navigation paths for the `/toyfight/` prefix. Publish by pushing the updated `dist/toyfight/` through the existing Pages workflow.
+
 Scroll down to travel sideways through the four rooms. The gallery uses native scrolling, a damped spring and layered parallax; the profile and contact follow naturally below. Room controls and keyboard navigation offer direct access. Reduced-motion preferences use a vertical layout.
 
 Room transitions follow scroll input directly with a short, nearly critically damped finish. Idle alignment waits 90 ms, then lands in about 170–255 ms instead of adding a second browser-controlled smooth scroll. Desktop visitors can drag a blank area sideways and release with momentum; new input interrupts the landing immediately. Crossing into another room no longer restarts a staggered entrance.

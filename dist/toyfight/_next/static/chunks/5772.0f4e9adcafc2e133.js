@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[5772],{25772:(e,t,a)=>{a.r(t),a.d(t,{default:()=>i});var s=a(37876);let i=e=>{let{slice:t}=e;return(0,s.jsx)("section",{"data-slice-type":t.slice_type,"data-slice-variation":t.variation})}}}]);

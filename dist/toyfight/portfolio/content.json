@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "words": [
+      "The",
+      "Unmistakably",
+      "Original®",
+      "Design",
+      "Studio"
+    ],
+    "tagline": "Creating Experiences Since 2015",
+    "sceneHint": "Move your cursor. They are watching.",
+    "ariaTitle": "The Unmistakably Original® Design Studio"
+  },
+  "footer": {
+    "line": "The Unmistakably Original® Design Studio",
+    "email": "hello@toyfight.co",
+    "copyright": "©2026 ToyFight® All Rights Reserved"
+  },
+  "works": [
+    {
+      "id": "film-01",
+      "title": "角色造型研究",
+      "category": "角色设计",
+      "duration": 7.9333,
+      "description": "从头部造型到发饰细节的三维角色研究，探索带有植物意象的人物形态。",
+      "src": "/toyfight/portfolio/media/film-01.mp4",
+      "poster": "/toyfight/portfolio/media/film-01.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-02",
+      "title": "Layer Earth · 交互演示",
+      "category": "创意编程",
+      "duration": 78.808005,
+      "description": "用可交互的地球剖面呈现层次、颜色与声音之间的关系。",
+      "src": "/toyfight/portfolio/media/film-02.mp4",
+      "poster": "/toyfight/portfolio/media/film-02.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-03",
+      "title": "Blender 动画制作",
+      "category": "三维动画",
+      "duration": 180.01,
+      "description": "从地铁到旷野的三维场景练习，探索人物、镜头与环境之间的关系。",
+      "src": "/toyfight/portfolio/media/film-03.mp4",
+      "poster": "/toyfight/portfolio/media/film-03.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-04",
+      "title": "空间与角色",
+      "category": "三维影像",
+      "duration": 166.25,
+      "description": "以人物和室内空间构成的三维影像，观察光线、材质与身体的关系。",
+      "src": "/toyfight/portfolio/media/film-04.mp4",
+      "poster": "/toyfight/portfolio/media/film-04.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-05",
+      "title": "Maya · 立体书",
+      "category": "三维动画",
+      "duration": 108.483991,
+      "description": "随着立体书翻页，纸上的人物与房间逐渐展开，将阅读变成空间叙事。",
+      "src": "/toyfight/portfolio/media/film-05.mp4",
+      "poster": "/toyfight/portfolio/media/film-05.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-06",
+      "title": "Montage Reel",
+      "category": "动态设计",
+      "duration": 125.201995,
+      "description": "字体、几何、光线与转场组成的动态设计片段集。",
+      "src": "/toyfight/portfolio/media/film-06.mp4",
+      "poster": "/toyfight/portfolio/media/film-06.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-07",
+      "title": "MV 制作",
+      "category": "音乐影像",
+      "duration": 235.5,
+      "description": "将影像拼贴、界面元素和音乐节奏编织在一起的 MV 作品。",
+      "src": "/toyfight/portfolio/media/film-07.mp4",
+      "poster": "/toyfight/portfolio/media/film-07.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-08",
+      "title": "TouchDesigner 动效制作",
+      "category": "生成艺术",
+      "duration": 90.345,
+      "description": "从视频反馈、信号到粒子图像的 TouchDesigner 生成视觉实验。",
+      "src": "/toyfight/portfolio/media/film-08.mp4",
+      "poster": "/toyfight/portfolio/media/film-08.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-09",
+      "title": "再见 Susan",
+      "category": "动画短片",
+      "duration": 182.378667,
+      "description": "通过手绘与实验动画，让情绪在人物、色彩和抽象意象之间流动。",
+      "src": "/toyfight/portfolio/media/film-09.mp4",
+      "poster": "/toyfight/portfolio/media/film-09.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-10",
+      "title": "摄影",
+      "category": "摄影影像",
+      "duration": 55.80575,
+      "description": "人物、光线与文字交织的摄影影像，记录细微的情绪和片段。",
+      "src": "/toyfight/portfolio/media/film-10.mp4",
+      "poster": "/toyfight/portfolio/media/film-10.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    },
+    {
+      "id": "film-11",
+      "title": "黄绿蓝小世界",
+      "category": "定格与实验影像",
+      "duration": 219.264,
+      "description": "结合偶、纸张和手工材质，搭建一个关于颜色与想象的定格小世界。",
+      "src": "/toyfight/portfolio/media/film-11.mp4",
+      "poster": "/toyfight/portfolio/media/film-11.jpg",
+      "background": "#0d0d0e",
+      "textColor": "#f5f1e9"
+    }
+  ]
+}
