@@ -9,6 +9,11 @@ async function walk(dir){return (await Promise.all((await readdir(dir,{withFileT
 const files=await walk(base),scripts=files.filter(p=>['.js','.mjs'].includes(extname(p))),pages=files.filter(p=>extname(p)==='.html');
 const run=promisify(execFile);let next=0;
 await Promise.all(Array.from({length:8},async()=>{while(next<scripts.length){const p=scripts[next++];await run(process.execPath,['--check',p]);}}));
+for(const p of scripts.filter(p=>extname(p)==='.mjs')){
+  for(const [,ref] of (await readFile(p,'utf8')).matchAll(/(?:\bfrom\s*|\bimport\s*\()\s*['"](\.[^'"]+)/g)){
+    assert.ok((await stat(resolve(p,'..',ref.split('?')[0]))).isFile(),`Missing module import: ${relative(base,p)}: ${ref}`);
+  }
+}
 for(const p of pages){
   const source=await readFile(p,'utf8');
   for(const [,raw] of source.matchAll(/(?:src|href)=["'](\/[^"'#]*)/g)){

@@ -1,4 +1,4 @@
-import * as T from '../toyfight/vendor/three/three.module.js';
+import * as T from '../vendor/three/three.module.js';
 import {createTrio} from './characters.mjs';
 
 export function mountCharacters(container) {

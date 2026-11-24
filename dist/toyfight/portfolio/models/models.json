@@ -2,7 +2,7 @@
   {
     "name": "黑发围巾女孩",
     "id": "bob-girl",
-    "file": "dist/toyfight/portfolio/models/bob-girl.glb",
+    "file": "dist/portfolio/models/bob-girl.glb",
     "meshes": 48,
     "triangles": 3918,
     "bytes": 326104,
@@ -14,7 +14,7 @@
   {
     "name": "金发女孩",
     "id": "blonde-girl",
-    "file": "dist/toyfight/portfolio/models/blonde-girl.glb",
+    "file": "dist/portfolio/models/blonde-girl.glb",
     "meshes": 44,
     "triangles": 4912,
     "bytes": 367936,
@@ -26,7 +26,7 @@
   {
     "name": "毛线卷发偶",
     "id": "yarn-doll",
-    "file": "dist/toyfight/portfolio/models/yarn-doll.glb",
+    "file": "dist/portfolio/models/yarn-doll.glb",
     "meshes": 141,
     "triangles": 17722,
     "bytes": 797180,

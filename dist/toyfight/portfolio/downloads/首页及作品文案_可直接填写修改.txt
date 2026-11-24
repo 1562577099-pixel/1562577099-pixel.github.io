@@ -1,5 +1,5 @@
 首页和作品文案修改表
-每个字段后写你的替换文字；对应的机器可读配置是 dist/toyfight/portfolio/content.json。
+每个字段后写你的替换文字；对应的机器可读配置是 dist/portfolio/content.json。
 
 首页主标题：The / Unmistakably / Original® / Design / Studio
 你的修改：

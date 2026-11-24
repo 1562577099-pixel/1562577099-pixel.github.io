@@ -41,7 +41,7 @@ for path in DEST.rglob('*'):
     text = path.read_text(encoding='utf8')
     for folder in ['_next', 'assets', 'portfolio', 'replica', 'vendor', 'images', 'fonts', 'audio']:
         # Ignore already-prefixed paths; this also covers escaped JSON strings.
-        text = re.sub(r'(?<!/toyfight)/' + folder + r'/', BASE + '/' + folder + '/', text)
+        text = re.sub(r'(?<![\w./-])/' + folder + r'/', BASE + '/' + folder + '/', text)
     text = text.replace('https://toyfight-study-miku.mythicgull18.chatgpt.site',
                         'https://1562577099-pixel.github.io' + BASE)
     if path.suffix == '.html':

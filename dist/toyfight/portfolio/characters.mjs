@@ -1,4 +1,4 @@
-import * as T from '../toyfight/vendor/three/three.module.js';
+import * as T from '../vendor/three/three.module.js';
 
 const materials = new Map();
 function mat(color, roughness=.86) {
